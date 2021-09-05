@@ -1,7 +1,7 @@
 package com.company.tests;
 
-import com.javarush.task.task33.task3310.Shortener;
-import com.javarush.task.task33.task3310.strategy.*;
+import com.company.Shortener;
+import com.company.strategy.*;
 import org.junit.Assert;
 import org.junit.Test;
 

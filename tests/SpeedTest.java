@@ -1,9 +1,9 @@
 package com.company.tests;
 
-import com.javarush.task.task33.task3310.Helper;
-import com.javarush.task.task33.task3310.Shortener;
-import com.javarush.task.task33.task3310.strategy.HashBiMapStorageStrategy;
-import com.javarush.task.task33.task3310.strategy.HashMapStorageStrategy;
+import com.company.Helper;
+import com.company.Shortener;
+import com.company.strategy.HashBiMapStorageStrategy;
+import com.company.strategy.HashMapStorageStrategy;
 import org.junit.Assert;
 import org.junit.Test;
 
