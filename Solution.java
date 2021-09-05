@@ -1,8 +1,6 @@
 package com.company;
 
-
-import com.company.strategy.HashMapStorageStrategy;
-import com.company.strategy.StorageStrategy;
+import com.company.strategy.*;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -10,9 +8,15 @@ import java.util.Set;
 
 public class Solution {
     public static void main(String[] args) {
-        long elementsNumber = 10000;
+        long elementsNumber = 500;
 
         testStrategy(new HashMapStorageStrategy(), elementsNumber);
+
+        testStrategy(new FileStorageStrategy(), elementsNumber);
+
+        testStrategy(new OurHashMapStorageStrategy(), elementsNumber);
+
+        testStrategy(new OurHashBiMapStorageStrategy(), elementsNumber);
     }
 
     public static void testStrategy(StorageStrategy strategy, long elementsNumber) {
@@ -21,7 +25,7 @@ public class Solution {
         Set<String> origStrings = new HashSet<>();
 
         for (int i = 0; i < elementsNumber; ++i) {
-            Helper.generateRandomString();
+            origStrings.add(Helper.generateRandomString());
         }
 
         Shortener shortener = new Shortener(strategy);
@@ -46,7 +50,7 @@ public class Solution {
         Helper.printMessage("");
     }
 
-    public static Set<Long> getIds(Shortener shortener, Set<String> strings) { //возвращает множество ид
+    public static Set<Long> getIds(Shortener shortener, Set<String> strings) {
         Set<Long> keys = new HashSet<>();
         for (String s : strings) {
             keys.add(shortener.getId(s));
@@ -54,7 +58,7 @@ public class Solution {
         return keys;
     }
 
-    public static Set<String> getStrings(Shortener shortener, Set<Long> keys) { //возвращает множество строк
+    public static Set<String> getStrings(Shortener shortener, Set<Long> keys) {
         Set<String> strings = new HashSet<>();
         for (Long k : keys) {
             strings.add(shortener.getString(k));
